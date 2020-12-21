@@ -1,15 +1,16 @@
- import 'package:ephysicsapp/screens/Admin/docMaster.dart';
+ import 'package:ephysicsapp/globals/colors.dart';
+import 'package:ephysicsapp/screens/Admin/docMaster.dart';
 import 'package:ephysicsapp/widgets/popUps.dart';
 import 'package:flutter/material.dart';
 
 Widget moduleCard({int index,Map moduleDetails, String section, BuildContext context}) {
     return Container(
         child: Card(
-            elevation: 4,
             margin: EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 7),
             semanticContainer: true,
-            color: Colors.amberAccent.shade50,
-            child: Container(         
+           
+            child: Container(        
+               color: color2, 
               child: Column(
               children: <Widget>[
                 Row(
@@ -47,18 +48,18 @@ Widget moduleCard({int index,Map moduleDetails, String section, BuildContext con
                             ),
                             IconButton(
                               icon: Icon(Icons.delete),
-                              color: Colors.grey,
+                               color: color5,
                               onPressed: () {
                                 onModuleDelete(section: section,moduleID: moduleDetails["moduleID"],context: context,moduleDetails:moduleDetails);
                               },
                             ),
                             IconButton(
                               icon: Icon(Icons.arrow_forward),
-                              color: Colors.grey,
+                               color: color5,
                               onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => DocMaster(section: section,moduleID: moduleDetails["moduleID"],)),
+                                    MaterialPageRoute(builder: (context) => DocMaster(section: section,moduleID: moduleDetails["moduleID"],moduleName:moduleDetails["moduleName"] ,)),
                                 );
                               },
                             ),

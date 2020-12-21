@@ -1,13 +1,16 @@
+
+import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/screens/Admin/addDoc.dart';
 import 'package:ephysicsapp/screens/Admin/widgets/docCard.dart';
 import 'package:ephysicsapp/screens/users/widgets/cards.dart';
 import 'package:ephysicsapp/services/authentication.dart';
+import 'package:ephysicsapp/widgets/generalWidgets.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class DocMaster extends StatefulWidget {
-  DocMaster({Key key, this.section,this.moduleID}) : super(key: key);
-  final String section,moduleID;
+  DocMaster({Key key, this.section,this.moduleID,this.moduleName}) : super(key: key);
+  final String section,moduleID,moduleName;
   @override
   _DocMasterState createState() => _DocMasterState();
 }
@@ -19,6 +22,7 @@ class _DocMasterState extends State<DocMaster> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     appBar: themeAppBar(widget.moduleName),
       body: StreamBuilder(
           stream: databaseReference.child(widget.section).child(widget.moduleID).child("documents").onValue,
           builder: (context, snap) {
@@ -54,11 +58,11 @@ class _DocMasterState extends State<DocMaster> {
             } else {
               return Center(
                   child: CircularProgressIndicator(
-                valueColor: new AlwaysStoppedAnimation<Color>(Colors.blue),
               ));
             }
           }),
         floatingActionButton:isLoggedIn()? FloatingActionButton(
+             backgroundColor: color4,
         onPressed: (){
              Navigator.push(
               context,

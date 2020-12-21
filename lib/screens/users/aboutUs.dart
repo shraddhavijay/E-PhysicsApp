@@ -1,4 +1,7 @@
 
+import 'package:ephysicsapp/globals/colors.dart';
+import 'package:ephysicsapp/globals/labels.dart';
+import 'package:ephysicsapp/widgets/generalWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/dot_animation_enum.dart';
 import 'package:intro_slider/intro_slider.dart';
@@ -23,58 +26,13 @@ class AboutUsState extends State<AboutUs> {
     super.initState();
 
     slides.add(
-      new Slide(
-        title: "SAKEC",
-        styleTitle: TextStyle(
-            color: Color(0xff3da4ab),
-            fontSize: 30.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'RobotoMono'),
-        description:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        styleDescription: TextStyle(
-            color: Color(0xfffe9c8f),
-            fontSize: 20.0,
-            fontStyle: FontStyle.italic,
-            fontFamily: 'Raleway'),
-        pathImage: "assets/sakec.jpg",
-      ),
+     newSlide(imgPath:"assets/sakec.jpg",discription:sakecDiscription,title: "About SAKEC"),
     );
     slides.add(
-      new Slide(
-        title: "RESEARCH CELL",
-        styleTitle: TextStyle(
-            color: Color(0xff3da4ab),
-            fontSize: 30.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'RobotoMono'),
-        description:
-            "Ye indulgence unreserved connection alteration appearance",
-        styleDescription: TextStyle(
-            color: Color(0xfffe9c8f),
-            fontSize: 20.0,
-            fontStyle: FontStyle.italic,
-            fontFamily: 'Raleway'),
-        pathImage: "assets/rc.png",
-      ),
+      newSlide(imgPath:"assets/rc.png",discription:rcDiscription,title: "About Research Cell"),
     );
     slides.add(
-      new Slide(
-        title: "TEAM",
-        styleTitle: TextStyle(
-            color: Color(0xff3da4ab),
-            fontSize: 30.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'RobotoMono'),
-        description:
-            "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
-        styleDescription: TextStyle(
-            color: Color(0xfffe9c8f),
-            fontSize: 20.0,
-            fontStyle: FontStyle.italic,
-            fontFamily: 'Raleway'),
-        pathImage: "assets/rc.png",
-      ),
+     newSlide(imgPath:"assets/rc.png",discription:sakecDiscription,title: "About Team"),
     );
   }
 
@@ -90,22 +48,22 @@ class AboutUsState extends State<AboutUs> {
   Widget renderNextBtn() {
     return Icon(
       Icons.navigate_next,
-      color: Color(0xffffcc5c),
-      size: 35.0,
+      color: color2,
+      size: 25.0,
     );
   }
 
   Widget renderDoneBtn() {
     return Icon(
       Icons.done,
-      color: Color(0xffffcc5c),
+      color: color2,
     );
   }
 
   Widget renderSkipBtn() {
     return Icon(
       Icons.skip_next,
-      color: Color(0xffffcc5c),
+      color: color2,
     );
   }
 
@@ -117,7 +75,7 @@ class AboutUsState extends State<AboutUs> {
         width: double.infinity,
         height: double.infinity,
         child: Container(
-          margin: EdgeInsets.only(bottom: 60.0, top: 60.0),
+          margin: EdgeInsets.only(bottom: 60.0, top: 60.0,left: 20,right: 20),
           child: ListView(
             children: <Widget>[
               GestureDetector(
@@ -161,8 +119,8 @@ class AboutUsState extends State<AboutUs> {
 
       // Skip button
       renderSkipBtn: this.renderSkipBtn(),
-      colorSkipBtn: Color(0x33ffcc5c),
-      highlightColorSkipBtn: Color(0xffffcc5c),
+      colorSkipBtn: color5,
+      highlightColorSkipBtn:  color5,
 
       // Next button
       renderNextBtn: this.renderNextBtn(),
@@ -170,11 +128,11 @@ class AboutUsState extends State<AboutUs> {
       // Done button
       renderDoneBtn: this.renderDoneBtn(),
       onDonePress: this.onDonePress,
-      colorDoneBtn: Color(0x33ffcc5c),
-      highlightColorDoneBtn: Color(0xffffcc5c),
+      colorDoneBtn:  color5,
+      highlightColorDoneBtn:  color5,
 
       // Dot indicator
-      colorDot: Color(0xffffcc5c),
+      colorDot:  color5,
       sizeDot: 13.0,
       typeDotAnimation: dotSliderAnimation.SIZE_TRANSITION,
 

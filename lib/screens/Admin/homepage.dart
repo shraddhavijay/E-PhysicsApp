@@ -1,3 +1,4 @@
+import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/screens/Admin/addModule.dart';
 import 'package:ephysicsapp/screens/authentication/adminLogin.dart';
 import 'package:ephysicsapp/services/authentication.dart';
@@ -16,8 +17,8 @@ class HomePage extends StatefulWidget {
 
 class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin {
   final List<Tab> tabs = <Tab>[
-    new Tab(text: "Physics- 1"),
-    new Tab(text: "Physics- 2"),
+    new Tab(text: "Physics- I"),
+    new Tab(text: "Physics- II"),
   ];
 
   TabController _tabController;
@@ -37,6 +38,7 @@ class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: new AppBar(
         title: Text("Homepage"),
         actions: [
@@ -54,18 +56,20 @@ class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin {
                         MaterialPageRoute(builder: (context) => AdminLogin()));
                   })
         ],
-        backgroundColor: Colors.amber,
+        backgroundColor: color5,
         bottom: new TabBar(
           isScrollable: true,
-          unselectedLabelColor: Colors.blue,
-          labelColor: Colors.black,
+          unselectedLabelColor: color2,
+          labelColor: color5,
+          
           labelPadding: EdgeInsets.symmetric(
               horizontal: (MediaQuery.of(context).size.width / 6)),
           indicatorPadding: EdgeInsets.symmetric(horizontal: 100),
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: new BubbleTabIndicator(
-            indicatorHeight: 35.0,
-            indicatorColor: Colors.blue,
+            indicatorHeight:40.0,
+            indicatorColor:color2,
+            indicatorRadius: 10,
             tabBarIndicatorSize: TabBarIndicatorSize.tab,
           ),
           tabs: tabs,
@@ -84,13 +88,14 @@ class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin {
         }).toList(),
       ),
       floatingActionButton: isLoggedIn()? FloatingActionButton(
+        backgroundColor: color4,
         onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AddModule()),
           );
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add,),
       ):Container(),
     );
   }

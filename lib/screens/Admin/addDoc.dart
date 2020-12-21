@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/services/docServices.dart';
 import 'package:ephysicsapp/widgets/popUps.dart';
 import 'package:flutter/material.dart';
@@ -46,9 +47,10 @@ class _AddDocState extends State<AddDoc> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      title: Text("Add module"),
+      title: Text("Add Document"),
       ),
       body: Container(
+         padding: EdgeInsets.symmetric(horizontal:20),
         child:Form(
           key: _formKeyValue,
         child: Column(
@@ -78,17 +80,17 @@ class _AddDocState extends State<AddDoc> {
               child: Text("select file"),
               ),
               Text("Selected file: "+ filePath??""),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
 
               RaisedButton(
                 child: Text(
                   'Add Document',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color:color1),
                 ),
                 onPressed: () {
                   checkValidation();
                 },
-                color: Colors.blue,
+                color: color4,
               ),
           ],
         ),

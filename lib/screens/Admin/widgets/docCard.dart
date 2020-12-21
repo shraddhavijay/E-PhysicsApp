@@ -1,15 +1,16 @@
- import 'package:ephysicsapp/services/docServices.dart';
+ import 'package:ephysicsapp/globals/colors.dart';
+import 'package:ephysicsapp/services/docServices.dart';
 import 'package:ephysicsapp/widgets/popUps.dart';
 import 'package:flutter/material.dart';
 
 Widget docCard({int index,Map docDetails,String section, String moduleID, BuildContext context}) {
     return Container(
         child: Card(
-            elevation: 4,
             margin: EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 7),
             semanticContainer: true,
-            color: Colors.amberAccent.shade50,
+            
             child: Container(         
+              color:color2,
               child: Column(
               children: <Widget>[
                 Row(
@@ -23,7 +24,7 @@ Widget docCard({int index,Map docDetails,String section, String moduleID, BuildC
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            "Name " +
+                         
                                docDetails["docName"]
                                     .toString(),
                             overflow: TextOverflow.clip,
@@ -47,14 +48,14 @@ Widget docCard({int index,Map docDetails,String section, String moduleID, BuildC
                             ),
                             IconButton(
                               icon: Icon(Icons.delete),
-                              color: Colors.grey,
+                              color: color5,
                               onPressed: () {
                                 onDocDelete(docID: docDetails["docID"],section: section,moduleID: moduleID,context: context);
                               },
                             ),
                             IconButton(
                               icon: Icon(Icons.arrow_forward),
-                              color: Colors.grey,
+                               color: color5,
                               onPressed: () {
                                  openFile( docDetails["downloadUrl"]);
                               },

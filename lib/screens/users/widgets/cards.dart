@@ -1,125 +1,73 @@
- import 'package:ephysicsapp/screens/Admin/docMaster.dart';
+import 'package:ephysicsapp/globals/colors.dart';
+import 'package:ephysicsapp/screens/Admin/docMaster.dart';
 import 'package:ephysicsapp/services/docServices.dart';
 import 'package:flutter/material.dart';
 
-Widget moduleUserCard({int index,Map moduleDetails, String section, BuildContext context}) {
-    return Container(
-        child: Card(
-            elevation: 4,
-            margin: EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 7),
-            semanticContainer: true,
-            color: Colors.amberAccent.shade50,
-            child: Container(         
-              child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width / 1.4,
-                      padding: EdgeInsets.only(top: 30,bottom: 30,left: 10,right: 10),
-                      //padding: EdgeInsets.all(5),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Name " +
-                               moduleDetails["moduleName"]
-                                    .toString(),
-                            overflow: TextOverflow.clip,
-                            maxLines: 1,
-                            softWrap: false,
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                //fontStyle: FontStyle.italic
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              width: 10,
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.arrow_forward),
-                              color: Colors.grey,
-                              onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => DocMaster(section: section,moduleID: moduleDetails["moduleID"],)),
-                                );
-                              },
-                            ),
-                          ],
-                        ))
-                  ],
-                )
-              ],
-            ))));
-  }
+Widget moduleUserCard(
+    {int index, Map moduleDetails, String section, BuildContext context}) {
+  return Container(
+      margin: EdgeInsets.fromLTRB(10, 7, 10, 7),
+      child: ListTile(
+        tileColor: color3,
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+        leading: Container(
+          padding: EdgeInsets.only(right: 12.0),
+          decoration: new BoxDecoration(
+              border: new Border(
+                  right: new BorderSide(width: 1.0, color: color5))),
+          child: Icon(Icons.book, color: color5),
+        ),
+        title: Text(
+          moduleDetails["moduleName"].toString(),
+          overflow: TextOverflow.clip,
+          maxLines: 1,
+          softWrap: false,
+          style: TextStyle(color: color5, fontWeight: FontWeight.bold,fontSize: 18,),
+        ),
+        trailing:
+            Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DocMaster(
+                        section: section,
+                        moduleName:moduleDetails["moduleName"] ,
+                        moduleID: moduleDetails["moduleID"],
+                      )));
+        },
+      ));
+}
 
-
-
-Widget docUserCard({int index,Map docDetails,String section, String moduleID, BuildContext context}) {
-    return Container(
-        child: Card(
-            elevation: 4,
-            margin: EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 7),
-            semanticContainer: true,
-            color: Colors.amberAccent.shade50,
-            child: Container(         
-              child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width / 1.4,
-                      padding: EdgeInsets.only(top: 30,bottom: 30,left: 10,right: 10),
-                      //padding: EdgeInsets.all(5),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Name " +
-                               docDetails["docName"]
-                                    .toString(),
-                            overflow: TextOverflow.clip,
-                            maxLines: 1,
-                            softWrap: false,
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                //fontStyle: FontStyle.italic
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              width: 10,
-                            ),
-                          
-                            IconButton(
-                              icon: Icon(Icons.arrow_forward),
-                              color: Colors.grey,
-                              onPressed: () {
-                                 openFile( docDetails["downloadUrl"]);
-                              },
-                            ),
-                          ],
-                        ))
-                  ],
-                )
-              ],
-            ))));
-  }
+Widget docUserCard(
+    {int index,
+    Map docDetails,
+    String section,
+    String moduleID,
+    BuildContext context}) {
+  return  Container(
+      margin: EdgeInsets.fromLTRB(10, 7, 10, 7),
+      child: ListTile(
+        tileColor: color3,
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        leading: Container(
+          padding: EdgeInsets.only(right: 12.0),
+          decoration: new BoxDecoration(
+              border: new Border(
+                  right: new BorderSide(width: 1.0, color: color5))),
+          child: Icon(Icons.note, color: color5),
+        ),
+        title: Text(
+          docDetails["docName"].toString(),
+          overflow: TextOverflow.clip,
+          maxLines: 1,
+          softWrap: false,
+          style: TextStyle(color: color5, fontWeight: FontWeight.bold,fontSize: 18,),
+        ),
+        trailing:
+            Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
+        onTap: () {
+        openFile(docDetails["downloadUrl"]);
+        },
+      ));
+}

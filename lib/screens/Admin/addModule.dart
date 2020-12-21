@@ -1,4 +1,6 @@
+import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/services/moduleServices.dart';
+import 'package:ephysicsapp/widgets/generalWidgets.dart';
 import 'package:flutter/material.dart';
 
 class AddModule extends StatefulWidget {
@@ -27,13 +29,13 @@ class _AddModuleState extends State<AddModule> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      title: Text("Add module"),
-      ),
+      appBar: themeAppBar("Add New Module"),
       body: Container(
+        padding: EdgeInsets.symmetric(horizontal:20),
         child:Form(
           key: _formKeyValue,
         child: Column(
+          
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
            Row(children: <Widget>[
@@ -76,20 +78,20 @@ class _AddModuleState extends State<AddModule> {
                   fillColor: Colors.white,
                   
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                    borderSide: BorderSide( width: 2.0),
                   ),
                 ),
               ),
-
+              SizedBox(height: 20,),
               RaisedButton(
                 child: Text(
                   'Create Module',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: color1),
                 ),
                 onPressed: () {
                   checkValidation();
                 },
-                color: Colors.blue,
+                color: color4,
               ),
           ],
         ),

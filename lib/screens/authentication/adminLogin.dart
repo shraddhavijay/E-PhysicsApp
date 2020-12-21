@@ -1,6 +1,11 @@
 
+import 'dart:ui';
+import 'package:ephysicsapp/globals/labels.dart';
+import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/services/authentication.dart';
+import 'package:ephysicsapp/widgets/generalWidgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AdminLogin extends StatefulWidget {
   AdminLogin({Key key, this.title}) : super(key: key);
@@ -27,15 +32,25 @@ class _AdminLoginState extends State<AdminLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      title: Text("Add module"),
-      ),
-      body: Container(
+      
+      appBar: themeAppBar("Login"),
+      body: Center(child: SingleChildScrollView(child:Container(
+        padding: EdgeInsets.symmetric(horizontal:20),
         child:Form(
           key: _formKeyValue,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+
+             Text(
+                loginPage,
+                style: GoogleFonts.merriweather(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    color: color5),
+              ),
+ SizedBox(height: 30,),
                TextFormField(
                 controller: emailController,
                 validator: (value){
@@ -49,11 +64,11 @@ class _AdminLoginState extends State<AdminLogin> {
                   fillColor: Colors.white,
                   
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                    borderSide: BorderSide( width: 2.0),
                   ),
                 ),
               ),
-
+              SizedBox(height: 20,),
               TextFormField(
                 controller: passwordController,
                 validator: (value){
@@ -67,25 +82,26 @@ class _AdminLoginState extends State<AdminLogin> {
                   fillColor: Colors.white,
                   
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                    borderSide: BorderSide(width: 2.0),
                   ),
                 ),
               ),
-
-              RaisedButton(
+              SizedBox(height: 30,),
+             
+               RaisedButton(
+                  padding: EdgeInsets.symmetric(vertical:10,horizontal:30),
                 child: Text(
-                  'Login',
-                  style: TextStyle(color: Colors.white),
+                  'Login',style: TextStyle(fontSize: 18,color: color1),
                 ),
                 onPressed: () {
                   checkValidation();
                 },
-                color: Colors.blue,
+                color: color5,
               ),
           ],
         ),
       ),
       
-    ));
+    ))));
   }
 }

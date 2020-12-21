@@ -1,3 +1,4 @@
+import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/screens/Admin/widgets/moduleCard.dart';
 import 'package:ephysicsapp/screens/users/widgets/cards.dart';
 import 'package:ephysicsapp/services/authentication.dart';
@@ -19,6 +20,7 @@ class _ModuleMasterState extends State<ModuleMaster> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: color1,
       body: StreamBuilder(
           stream: databaseReference.child(widget.section).onValue,
           builder: (context, snap) {
@@ -53,7 +55,6 @@ class _ModuleMasterState extends State<ModuleMaster> {
             } else {
               return Center(
                   child: CircularProgressIndicator(
-                valueColor: new AlwaysStoppedAnimation<Color>(Colors.blue),
               ));
             }
           }),
