@@ -56,3 +56,4 @@ Future<void> openFile(String url) async {
     showToast("Failed to open file. Try again");
   }
 }
+

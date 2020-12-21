@@ -12,9 +12,7 @@ Widget themeAppBar(String title){
 }
 
 //about us page slide
-
- newSlide({String imgPath,String discription,String title}){
-
+newSlide({String imgPath,String discription,String title}){
   return Slide(
         title: title,
         styleTitle: TextStyle(

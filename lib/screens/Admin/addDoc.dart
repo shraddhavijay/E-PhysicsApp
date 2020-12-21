@@ -4,6 +4,7 @@ import 'package:ephysicsapp/services/docServices.dart';
 import 'package:ephysicsapp/widgets/popUps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
+import 'package:future_progress_dialog/future_progress_dialog.dart';
 
 class AddDoc extends StatefulWidget {
   AddDoc({Key key, this.section,this.moduleID}) : super(key: key);
@@ -31,17 +32,53 @@ class _AddDocState extends State<AddDoc> {
     setState(() {});
 
   }
+
+   Future getFuture() {
+    return Future(() async {
+      await addDoc(section:widget.section,moduleID:widget.moduleID,docName:docNameController.text,doc: pickedFile);
+      return 'Process Complete';
+    });
+  }
+
+
   checkValidation()
   {
     if(_formKeyValue.currentState.validate() && filePath != null){
       if (filePath != null) {
       pickedFile = File(filePath); 
       debugPrint(filePath);   
-       addDoc(section:widget.section,moduleID:widget.moduleID,docName:docNameController.text,doc: pickedFile);
+       //addDoc(section:widget.section,moduleID:widget.moduleID,docName:docNameController.text,doc: pickedFile);
+
+       showProgress(context);
       }
     }
     else showToast("Please enter details");
   }
+
+Future<void> showProgress(BuildContext context) async {
+    var result = await showDialog(
+        context: context,
+        child: FutureProgressDialog(getFuture(), message: Text('Uploading...')));
+    showResultDialog(context, result);
+  }
+  
+ void showResultDialog(BuildContext context, String result) {
+    showDialog(
+      context: context,
+      child: AlertDialog(
+        content: Text(result),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('OK'),
+          )
+        ],
+      ),
+    );
+  }
+  
 
   @override
   Widget build(BuildContext context) {

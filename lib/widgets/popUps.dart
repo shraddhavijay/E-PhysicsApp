@@ -38,15 +38,15 @@ Future<void> onDocDelete({String docID,String moduleID,String section,BuildConte
         actions: <Widget>[
           new GestureDetector(
             onTap: () => Navigator.of(context).pop(false),
-            child: Text("NO",style: TextStyle(fontSize: 16),),
+            child: Text("NO",style: TextStyle(fontSize: 18),),
           ),
-          SizedBox(width: 15),
+          SizedBox(width: 35),
           new GestureDetector(
             onTap: () async{
               await deleteDoc(docID:docID,moduleID:moduleID,section:section);
               Navigator.of(context).pop(false);
             },
-            child: Text("YES" ,style: TextStyle(fontSize: 16),),
+            child: Text("YES" ,style: TextStyle(fontSize: 18),),
           ),
         ],
       ),
@@ -62,15 +62,15 @@ Future<void> onDocDelete({String docID,String moduleID,String section,BuildConte
         actions: <Widget>[
           new GestureDetector(
             onTap: () => Navigator.of(context).pop(false),
-            child: Text("NO",style: TextStyle(fontSize: 16),),
+            child: Text("NO",style: TextStyle(fontSize: 18),),
           ),
-          SizedBox(width: 15),
+          SizedBox(width: 35),
           new GestureDetector(
             onTap: () async{
               await deleteModule(section:section,moduleID:moduleID ,moduleDetails: moduleDetails);
                Navigator.of(context).pop(false);
             },
-            child: Text("YES" ,style: TextStyle(fontSize: 16),),
+            child: Text("YES" ,style: TextStyle(fontSize: 18),),
           ),
         ],
       ),

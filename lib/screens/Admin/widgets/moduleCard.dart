@@ -24,7 +24,7 @@ Widget moduleCard({int index,Map moduleDetails, String section, BuildContext con
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            "Name " +
+                        
                                moduleDetails["moduleName"]
                                     .toString(),
                             overflow: TextOverflow.clip,
