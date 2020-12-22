@@ -1,4 +1,3 @@
-
 import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/globals/labels.dart';
 import 'package:ephysicsapp/widgets/generalWidgets.dart';
@@ -6,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:intro_slider/dot_animation_enum.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
-
-
 
 class AboutUs extends StatefulWidget {
   AboutUs({Key key}) : super(key: key);
@@ -26,13 +23,22 @@ class AboutUsState extends State<AboutUs> {
     super.initState();
 
     slides.add(
-     newSlide(imgPath:"assets/sakec.jpg",discription:sakecDiscription,title: "About SAKEC"),
+      newSlide(
+          imgPath: "assets/sakec.jpg",
+          discription: sakecDiscription,
+          title: "About SAKEC"),
     );
     slides.add(
-      newSlide(imgPath:"assets/rc.png",discription:rcDiscription,title: "About Research Cell"),
+      newSlide(
+          imgPath: "assets/rc.png",
+          discription: rcDiscription,
+          title: "About Research Cell"),
     );
     slides.add(
-     newSlide(imgPath:"assets/rc.png",discription:teamDiscription,title: "About Team"),
+      newSlide(
+          imgPath: "assets/rc.png",
+          discription: teamDiscription,
+          title: "About Team"),
     );
   }
 
@@ -75,9 +81,11 @@ class AboutUsState extends State<AboutUs> {
         width: double.infinity,
         height: double.infinity,
         child: Container(
-          margin: EdgeInsets.only(bottom: 60.0, top: 60.0,left: 20,right: 20),
           child: ListView(
             children: <Widget>[
+              SizedBox(
+                height: 50,
+              ),
               GestureDetector(
                   child: Image.asset(
                 currentSlide.pathImage,
@@ -91,7 +99,7 @@ class AboutUsState extends State<AboutUs> {
                   style: currentSlide.styleTitle,
                   textAlign: TextAlign.center,
                 ),
-                margin: EdgeInsets.only(top: 20.0),
+                margin: EdgeInsets.only(top: 20.0, left: 20, right: 20),
               ),
               Container(
                 child: Text(
@@ -101,7 +109,7 @@ class AboutUsState extends State<AboutUs> {
                   maxLines: 15,
                   overflow: TextOverflow.ellipsis,
                 ),
-                margin: EdgeInsets.only(top: 20.0),
+                margin: EdgeInsets.only(top: 20.0, left: 20, right: 20),
               ),
             ],
           ),
@@ -120,7 +128,7 @@ class AboutUsState extends State<AboutUs> {
       // Skip button
       renderSkipBtn: this.renderSkipBtn(),
       colorSkipBtn: color5,
-      highlightColorSkipBtn:  color5,
+      highlightColorSkipBtn: color5,
 
       // Next button
       renderNextBtn: this.renderNextBtn(),
@@ -128,11 +136,11 @@ class AboutUsState extends State<AboutUs> {
       // Done button
       renderDoneBtn: this.renderDoneBtn(),
       onDonePress: this.onDonePress,
-      colorDoneBtn:  color5,
-      highlightColorDoneBtn:  color5,
+      colorDoneBtn: color5,
+      highlightColorDoneBtn: color5,
 
       // Dot indicator
-      colorDot:  color5,
+      colorDot: color5,
       sizeDot: 13.0,
       typeDotAnimation: dotSliderAnimation.SIZE_TRANSITION,
 
