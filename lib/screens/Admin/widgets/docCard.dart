@@ -57,7 +57,7 @@ Widget docCard({int index,Map docDetails,String section, String moduleID, BuildC
                               icon: Icon(Icons.arrow_forward),
                                color: color5,
                               onPressed: () {
-                                 openFile( docDetails["downloadUrl"]);
+                                 openFile( docDetails["downloadUrl"],context);
                               },
                             ),
                           ],

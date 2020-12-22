@@ -31,7 +31,6 @@ dependencies:
   flutter_file_dialog: ^1.0.0
   firebase_core: "^0.5.3"
   firebase_storage: "^5.2.0"
-  ars_progress_dialog: ^0.1.2
   fluttertoast: ^7.1.6
   firebase_database: ^4.4.0
   bubble_tab_indicator: 
@@ -42,6 +41,9 @@ dependencies:
   intro_slider: ^2.3.3
   google_fonts: ^1.1.1
   future_progress_dialog: ^0.1.1
+  flutter_pdfview: ^1.0.4
+  path_provider: ^1.6.24
+  custom_progress_dialog: ^1.0.5
 
 dev_dependencies:
   flutter_test:

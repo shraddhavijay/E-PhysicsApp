@@ -26,6 +26,7 @@ class _AddDocState extends State<AddDoc> {
     final params = OpenFileDialogParams(
     dialogType: OpenFileDialogType.document,
     sourceType: SourceType.photoLibrary,
+    fileExtensionsFilter: ["pdf"],
   );
    filePath = await FlutterFileDialog.pickFile(params: params);
     print(filePath.runtimeType);
@@ -62,23 +63,7 @@ Future<void> showProgress(BuildContext context) async {
     showResultDialog(context, result);
   }
   
- void showResultDialog(BuildContext context, String result) {
-    showDialog(
-      context: context,
-      child: AlertDialog(
-        content: Text(result),
-        actions: <Widget>[
-          FlatButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text('OK'),
-          )
-        ],
-      ),
-    );
-  }
-  
+ 
 
   @override
   Widget build(BuildContext context) {

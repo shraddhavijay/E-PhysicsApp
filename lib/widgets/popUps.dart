@@ -1,4 +1,4 @@
- import 'package:ars_progress_dialog/ars_progress_dialog.dart';
+
 import 'package:ephysicsapp/services/docServices.dart';
 import 'package:ephysicsapp/services/moduleServices.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,14 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 
-ArsProgressDialog arsProgressDialog(BuildContext context)
-{
-  return ArsProgressDialog(
-	 context,
-	 blur: 1,
-   dismissable: true,  
-  );  
-}
+
 
 
 showToast(String msg)
@@ -76,3 +69,21 @@ Future<void> onDocDelete({String docID,String moduleID,String section,BuildConte
       ),
     );
   }
+
+  void showResultDialog(BuildContext context, String result) {
+    showDialog(
+      context: context,
+      child: AlertDialog(
+        content: Text(result),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('OK'),
+          )
+        ],
+      ),
+    );
+  }
+  

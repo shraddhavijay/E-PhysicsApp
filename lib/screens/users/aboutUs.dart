@@ -32,7 +32,7 @@ class AboutUsState extends State<AboutUs> {
       newSlide(imgPath:"assets/rc.png",discription:rcDiscription,title: "About Research Cell"),
     );
     slides.add(
-     newSlide(imgPath:"assets/rc.png",discription:sakecDiscription,title: "About Team"),
+     newSlide(imgPath:"assets/rc.png",discription:teamDiscription,title: "About Team"),
     );
   }
 
@@ -98,7 +98,7 @@ class AboutUsState extends State<AboutUs> {
                   currentSlide.description,
                   style: currentSlide.styleDescription,
                   textAlign: TextAlign.center,
-                  maxLines: 5,
+                  maxLines: 15,
                   overflow: TextOverflow.ellipsis,
                 ),
                 margin: EdgeInsets.only(top: 20.0),

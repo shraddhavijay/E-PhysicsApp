@@ -13,8 +13,8 @@ Widget moduleUserCard(
         leading: Container(
           padding: EdgeInsets.only(right: 12.0),
           decoration: new BoxDecoration(
-              border: new Border(
-                  right: new BorderSide(width: 1.0, color: color5))),
+              border:
+                  new Border(right: new BorderSide(width: 1.0, color: color5))),
           child: Icon(Icons.book, color: color5),
         ),
         title: Text(
@@ -22,17 +22,20 @@ Widget moduleUserCard(
           overflow: TextOverflow.clip,
           maxLines: 1,
           softWrap: false,
-          style: TextStyle(color: color5, fontWeight: FontWeight.bold,fontSize: 18,),
+          style: TextStyle(
+            color: color5,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
         ),
-        trailing:
-            Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
+        trailing: Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
         onTap: () {
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => DocMaster(
                         section: section,
-                        moduleName:moduleDetails["moduleName"] ,
+                        moduleName: moduleDetails["moduleName"],
                         moduleID: moduleDetails["moduleID"],
                       )));
         },
@@ -45,7 +48,7 @@ Widget docUserCard(
     String section,
     String moduleID,
     BuildContext context}) {
-  return  Container(
+  return Container(
       margin: EdgeInsets.fromLTRB(10, 7, 10, 7),
       child: ListTile(
         tileColor: color3,
@@ -53,8 +56,8 @@ Widget docUserCard(
         leading: Container(
           padding: EdgeInsets.only(right: 12.0),
           decoration: new BoxDecoration(
-              border: new Border(
-                  right: new BorderSide(width: 1.0, color: color5))),
+              border:
+                  new Border(right: new BorderSide(width: 1.0, color: color5))),
           child: Icon(Icons.note, color: color5),
         ),
         title: Text(
@@ -62,12 +65,16 @@ Widget docUserCard(
           overflow: TextOverflow.clip,
           maxLines: 1,
           softWrap: false,
-          style: TextStyle(color: color5, fontWeight: FontWeight.bold,fontSize: 18,),
+          style: TextStyle(
+            color: color5,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
         ),
-        trailing:
-            Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
+        trailing: Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
         onTap: () {
-        openFile(docDetails["downloadUrl"]);
+          openFile(docDetails["downloadUrl"], context);
+            //openDocProgressIndicator( context, docDetails["downloadUrl"]);// didnt work
         },
       ));
 }
