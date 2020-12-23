@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:custom_progress_dialog/custom_progress_dialog.dart';
-import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/widgets/pdfViewer.dart';
 import 'package:ephysicsapp/widgets/popUps.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -93,15 +92,20 @@ Future<File> createFileOfPdfUrl(String pdfUrl) async {
     // final url = "https://pdfkit.org/docs/guide.pdf";
     final url = pdfUrl;
     final filename = url.substring(url.lastIndexOf("/") + 1);
-    var request = await HttpClient().getUrl(Uri.parse(url));
-    var response = await request.close();
-    var bytes = await consolidateHttpClientResponseBytes(response);
+
     var dir = await getApplicationDocumentsDirectory();
-    print("Download files");
     print("${dir.path}/$filename");
     File file = File("${dir.path}/$filename");
 
+    if(!(await file.exists())){
+    print("--------------------doesnt  exist");
+    var request = await HttpClient().getUrl(Uri.parse(url));
+    var response = await request.close();
+    var bytes = await consolidateHttpClientResponseBytes(response);
     await file.writeAsBytes(bytes, flush: true);
+    }
+    else print("--------------------Already exist");
+   
     completer.complete(file);
   } catch (e) {
     throw Exception('Error parsing asset file!');
