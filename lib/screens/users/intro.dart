@@ -1,9 +1,10 @@
 import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/globals/labels.dart';
-import 'package:ephysicsapp/screens/Admin/homepage.dart';
 import 'package:ephysicsapp/screens/users/aboutUs.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'home.dart';
 
 class IntroPage extends StatefulWidget {
   @override
@@ -82,7 +83,7 @@ class _IntroPageState extends State<IntroPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => MyHomePage()),
                 );
               },
               icon: new Icon(Icons.home),

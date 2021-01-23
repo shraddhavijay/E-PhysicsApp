@@ -8,14 +8,14 @@ import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 
 import 'modulesMaster.dart';
 
-class HomePage extends StatefulWidget {
+class NotesHomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return new HomeWidgetState();
   }
 }
 
-class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin {
+class HomeWidgetState extends State<NotesHomePage> with TickerProviderStateMixin {
   final List<Tab> tabs = <Tab>[
     new Tab(text: "Physics- I"),
     new Tab(text: "Physics- II"),
@@ -40,24 +40,25 @@ class HomeWidgetState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
       
       appBar: new AppBar(
-        title: Text("Homepage"),
-        actions: [
-          isLoggedIn()
-              ? IconButton(
-                  icon: Icon(Icons.exit_to_app),
-                  onPressed: () {
-                    onLogout(context);
-                  },
-                )
-              : IconButton(
-                  icon: Icon(Icons.person),
-                  onPressed: () async {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AdminLogin()));
-                  })
-        ],
-        backgroundColor: color5,
-        bottom: new TabBar(
+        // title: Text("Homepage"),
+        // actions: [
+        //   isLoggedIn()
+        //       ? IconButton(
+        //           icon: Icon(Icons.exit_to_app),
+        //           onPressed: () {
+        //             onLogout(context);
+        //           },
+        //         )
+        //       : IconButton(
+        //           icon: Icon(Icons.person),
+        //           onPressed: () async {
+        //             Navigator.push(context,
+        //                 MaterialPageRoute(builder: (context) => AdminLogin()));
+        //           })
+        // ],
+        // backgroundColor: color5,
+        automaticallyImplyLeading: false,
+        title: new TabBar(
           isScrollable: true,
           unselectedLabelColor: color2,
           labelColor: color5,
