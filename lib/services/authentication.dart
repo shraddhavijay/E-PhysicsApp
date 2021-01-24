@@ -1,3 +1,4 @@
+import 'package:ephysicsapp/main.dart';
 import 'package:ephysicsapp/screens/users/intro.dart';
 import 'package:ephysicsapp/widgets/popUps.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -29,7 +30,7 @@ onLogout(BuildContext context) async{
   Navigator.pushAndRemoveUntil(context, PageRouteBuilder(
     pageBuilder: (BuildContext context, Animation animation,
         Animation secondaryAnimation) {
-      return IntroPage();
+      return MyApp();
     },
   ), (Route route) => false);
   showToast("Logout Successfull");

@@ -37,7 +37,7 @@ class HomeWidgetState extends State<NotesHomePage> with TickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      backgroundColor: color1,
       appBar: new AppBar(
         // title: Text("Homepage"),
         // actions: [

@@ -29,6 +29,7 @@ class _AddModuleState extends State<AddModule> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: color1,
       appBar: themeAppBar("Add New Module"),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal:20),

@@ -22,6 +22,7 @@ class _DocMasterState extends State<DocMaster> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: color1,
      appBar: themeAppBar(widget.moduleName),
       body: StreamBuilder(
           stream: databaseReference.child(widget.section).child(widget.moduleID).child("documents").onValue,

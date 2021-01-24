@@ -68,6 +68,7 @@ Future<void> showProgress(BuildContext context) async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: color1,
       appBar: AppBar(
       title: Text("Add Document"),
       ),

@@ -7,9 +7,14 @@ Widget moduleUserCard(
     {int index, Map moduleDetails, String section, BuildContext context}) {
   return Container(
       margin: EdgeInsets.fromLTRB(10, 7, 10, 7),
-      child: ListTile(
-        tileColor: color3,
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+      child:Card(
+        elevation: 3,
+        color:  color1,
+          shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.horizontal(right: Radius.circular(100)),
+    ),
+      child:ListTile(  
+       contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         leading: Container(
           padding: EdgeInsets.only(right: 12.0),
           decoration: new BoxDecoration(
@@ -39,7 +44,7 @@ Widget moduleUserCard(
                         moduleID: moduleDetails["moduleID"],
                       )));
         },
-      ));
+      )));
 }
 
 Widget docUserCard(
@@ -50,8 +55,14 @@ Widget docUserCard(
     BuildContext context}) {
   return Container(
       margin: EdgeInsets.fromLTRB(10, 7, 10, 7),
+       child:Card(
+        elevation: 3,
+        color:  color1,
+          shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.horizontal(right: Radius.circular(100)),
+    ),
       child: ListTile(
-        tileColor: color3,
+      
         contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         leading: Container(
           padding: EdgeInsets.only(right: 12.0),
@@ -76,5 +87,5 @@ Widget docUserCard(
           openFile(docDetails["downloadUrl"], context);
             //openDocProgressIndicator( context, docDetails["downloadUrl"]);// didnt work
         },
-      ));
+      )));
 }

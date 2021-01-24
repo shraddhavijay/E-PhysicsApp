@@ -32,7 +32,7 @@ class _AdminLoginState extends State<AdminLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      backgroundColor: color1,
       appBar: themeAppBar("Login"),
       body: Center(child: SingleChildScrollView(child:Container(
         padding: EdgeInsets.symmetric(horizontal:20),

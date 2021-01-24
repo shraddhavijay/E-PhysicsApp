@@ -89,6 +89,7 @@ class _QuizPlayState extends State<QuizPlay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: color1,
       appBar: AppBar(
         title: Text(widget.name),
         centerTitle: true,

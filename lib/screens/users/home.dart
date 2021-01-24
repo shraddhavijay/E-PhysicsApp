@@ -86,21 +86,21 @@ class _MyHomePageState extends State<MyHomePage> {
         items: <BottomNavyBarItem>[
 
            BottomNavyBarItem(
-            activeColor: color3,
+            activeColor: color2,
             
             title: Text('Dashboard',style: TextStyle(color: color5),),
             icon: Icon(Icons.home,color: color5,)
           ),
           
           BottomNavyBarItem(
-            activeColor: color3,
+            activeColor: color2,
            
             title: Text('Notes',style: TextStyle(color: color5),),
             icon: Icon(Icons.book,color: color5,)
           ),
 
            BottomNavyBarItem(
-            activeColor: color3,
+            activeColor: color2,
             title: Text('Quizzez',style: TextStyle(color: color5),),
             icon: Icon(Icons.timer,color: color5,)
           ),

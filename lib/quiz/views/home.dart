@@ -30,11 +30,9 @@ class _QuizHomePageState extends State<QuizHomePage> {
                       itemBuilder: (context, index) {
                         return QuizTile(
                           noOfQuestions: snapshot.data.documents.length,
-                        
-                          title:
-                              snapshot.data.documents[index]['quizTitle'],
-                          description:
-                              snapshot.data.documents[index]['quizDesc'],
+                          title: snapshot.data.documents[index]['quizTitle'],
+                          description: snapshot.data.documents[index]
+                              ['quizDesc'],
                           id: snapshot.data.documents[index]["id"],
                         );
                       });
@@ -57,23 +55,23 @@ class _QuizHomePageState extends State<QuizHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-
+      backgroundColor: color1,
       body: quizList(),
-      floatingActionButton: isLoggedIn()? FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => CreateQuiz()));
-        },
-      ):Container(),
+      floatingActionButton: isLoggedIn()
+          ? FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CreateQuiz()));
+              },
+            )
+          : Container(),
     );
   }
 }
 
 class QuizTile extends StatelessWidget {
-  final String  title, id, description;
+  final String title, id, description;
   final int noOfQuestions;
 
   QuizTile(
@@ -84,42 +82,54 @@ class QuizTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-          builder: (context) => QuizPlay(id,title)
-        ));
+    return Container(
+      margin: EdgeInsets.only(top:10,left:10,right:10),
+      height: MediaQuery.of(context).size.height/7,
+      child:GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => QuizPlay(id, title)));
       },
-      child: Container(
-        padding: EdgeInsets.only(top: 15,left: 10,right: 10),
-        height: MediaQuery.of(context).size.height/6,
-        child: ListTile(
-          tileColor: color2,
-          leading: Container(
-          padding: EdgeInsets.only(right: 12.0),
-          decoration: new BoxDecoration(
-              border:
-                  new Border(right: new BorderSide(width: 1.0, color: color5))),
-          child: Icon(Icons.timer_outlined, color: color5),
-        ),
-          title: Text(
-                        title,
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: color5,
-                            fontWeight: FontWeight.w500),
-                      ),
-          subtitle:  Text(
-                        description,
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: color5,
-                            fontWeight: FontWeight.w500),
-                      ) ,
+      child:Card(
+         shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.horizontal(left: Radius.circular(100)),
+    ),
+        elevation: 5,
+        child: ClipPath(
           
-           
+          child: Container(
+            
+            
+            decoration: BoxDecoration(
+              
+                border:
+                    Border(right: BorderSide(color: color5, width: 5))),
+            child:Center(child: ListTile(
+             // tileColor: color2,
+              leading: Container(
+                padding: EdgeInsets.only(right: 12.0),
+                decoration: new BoxDecoration(
+                    border: new Border(
+                        right: new BorderSide(width: 1.0, color: color5))),
+                child: Icon(Icons.timer_outlined, color: color5),
+              ),
+              title: Text(
+                title,
+                style: TextStyle(
+                    fontSize: 18, color: color5, fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(
+                description,
+                style: TextStyle(
+                    fontSize: 13, color: color5, fontWeight: FontWeight.w500),
+              ),
+            ),
+          )),
+          clipper: ShapeBorderClipper(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(3))),
         ),
       ),
-    );
+    ));
   }
 }
