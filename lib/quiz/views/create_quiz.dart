@@ -2,9 +2,9 @@ import 'package:ephysicsapp/quiz/services/database.dart';
 import 'package:ephysicsapp/quiz/widget/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:random_string/random_string.dart';
-
+import 'package:ephysicsapp/globals/colors.dart';
 import 'add_question.dart';
-
+import 'package:ephysicsapp/widgets/generalWidgets.dart';
 class CreateQuiz extends StatefulWidget {
 
 
@@ -17,7 +17,7 @@ class _CreateQuizState extends State<CreateQuiz> {
   DatabaseService databaseService = new DatabaseService();
   final _formKey = GlobalKey<FormState>();
 
-  String quizImgUrl, quizTitle, quizDesc;
+  String quizTitle, quizDesc;
 
   bool isLoading = false;
   String quizId;
@@ -33,7 +33,7 @@ class _CreateQuizState extends State<CreateQuiz> {
       });
 
       Map<String, String> quizData = {
-        "quizImgUrl" : quizImgUrl,
+       
         "quizTitle" : quizTitle,
         "quizDesc" : quizDesc,
         "id":quizId
@@ -55,31 +55,22 @@ class _CreateQuizState extends State<CreateQuiz> {
   Widget build(BuildContext context) {
     return Scaffold(
      backgroundColor: color1,
-      appBar: AppBar(
-        leading: BackButton(
-          color: Colors.black54,
-        ),
-        title: AppLogo(),
-        brightness: Brightness.light,
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        //brightness: Brightness.li,
-      ),
+      appBar: themeAppBar("Create Quiz"),
       body: Form(
         key: _formKey,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-            TextFormField(
-              validator: (val) => val.isEmpty ? "Enter Quiz Image Url" : null,
-              decoration: InputDecoration(
-                hintText: "Quiz Image Url (Optional)"
-              ),
-              onChanged: (val){
-                quizImgUrl = val;
-              },
-            ),
+            // TextFormField(
+            //   validator: (val) => val.isEmpty ? "Enter Quiz Image Url" : null,
+            //   decoration: InputDecoration(
+            //     hintText: "Quiz Image Url (Optional)"
+            //   ),
+            //   onChanged: (val){
+            //     quizImgUrl = val;
+            //   },
+            // ),
             SizedBox(height: 5,),
             TextFormField(
               validator: (val) => val.isEmpty ? "Enter Quiz Title" : null,
@@ -101,25 +92,18 @@ class _CreateQuizState extends State<CreateQuiz> {
               },
             ),
               Spacer(),
-              GestureDetector(
-                onTap: () {
-                  createQuiz();
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 24, vertical: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Text(
+             RaisedButton(
+                child: Text(
                     "Create Quiz",
                     style: TextStyle(
                         fontSize: 16, color: Colors.white),
                   ),
-                ),
-              ),
+                  onPressed: (){
+                        createQuiz();
+                  },
+                  color: color5,
+                  padding: EdgeInsets.symmetric(horizontal:30,vertical:15),
+             ),
               SizedBox(
                 height: 60,
               ),

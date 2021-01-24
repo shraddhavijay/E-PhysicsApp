@@ -4,7 +4,7 @@ import 'package:ephysicsapp/quiz/views/create_quiz.dart';
 import 'package:ephysicsapp/quiz/views/quiz_play.dart';
 import 'package:ephysicsapp/services/authentication.dart';
 import 'package:flutter/material.dart';
-
+import 'package:ephysicsapp/globals/colors.dart';
 class QuizHomePage extends StatefulWidget {
   @override
   _QuizHomePageState createState() => _QuizHomePageState();
@@ -13,6 +13,9 @@ class QuizHomePage extends StatefulWidget {
 class _QuizHomePageState extends State<QuizHomePage> {
   Stream quizStream;
   DatabaseService databaseService = new DatabaseService();
+
+ 
+
 
   Widget quizList() {
     return Container(
@@ -80,8 +83,36 @@ class QuizTile extends StatelessWidget {
       @required this.id,
       @required this.noOfQuestions});
 
+  
+
   @override
   Widget build(BuildContext context) {
+
+ Future<void> onDelete({String id,}) {
+    return showDialog(
+      context: context,
+      builder: (context) => new AlertDialog(
+        title: new Text('Are you sure?'),
+        content: new Text('Do you want to delete this Quiz?'),
+        actions: <Widget>[
+          new GestureDetector(
+            onTap: () => Navigator.of(context).pop(false),
+            child: Text("NO",style: TextStyle(fontSize: 18),),
+          ),
+          SizedBox(width: 35),
+          new GestureDetector(
+            onTap: () async{
+               deleteQuiz(id);
+                Navigator.of(context).pop(false);
+            },
+            child: Text("YES" ,style: TextStyle(fontSize: 18),),
+          ),
+        ],
+      ),
+    );
+  }
+
+
     return Container(
       margin: EdgeInsets.only(top:10,left:10,right:10),
       height: MediaQuery.of(context).size.height/7,
@@ -123,6 +154,13 @@ class QuizTile extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 13, color: color5, fontWeight: FontWeight.w500),
               ),
+            trailing:  isLoggedIn()?IconButton(
+              icon:Icon(Icons.delete), 
+              onPressed: (){
+               onDelete(id:id);
+              },
+              color: color5
+              ):Container(),
             ),
           )),
           clipper: ShapeBorderClipper(

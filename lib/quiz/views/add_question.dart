@@ -1,8 +1,8 @@
 import 'package:ephysicsapp/quiz/services/database.dart';
 import 'package:ephysicsapp/quiz/widget/widget.dart';
 import 'package:flutter/material.dart';
-
-
+import 'package:ephysicsapp/globals/colors.dart';
+import 'package:ephysicsapp/widgets/generalWidgets.dart';
 class AddQuestion extends StatefulWidget {
 
   final String quizId;
@@ -61,21 +61,12 @@ class _AddQuestionState extends State<AddQuestion> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: color1,
-      appBar: AppBar(
-        leading: BackButton(
-          color: Colors.black54,
-        ),
-        title: AppLogo(),
-        brightness: Brightness.light,
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        //brightness: Brightness.li,
-      ),
+      appBar: themeAppBar("Add Question"),
       body: isLoading
           ? Container(
               child: Center(child: CircularProgressIndicator()),
             )
-          : Form(
+          : SingleChildScrollView(child:Form(
               key: _formKey,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 24),
@@ -133,7 +124,8 @@ class _AddQuestionState extends State<AddQuestion> {
                     SizedBox(
                       height: 8,
                     ),
-                    Spacer(),
+                   // Spacer(),
+                   SizedBox(height: 50,),
                     Row(
                       children: [
                         GestureDetector(
@@ -146,10 +138,10 @@ class _AddQuestionState extends State<AddQuestion> {
                             alignment: Alignment.center,
                             width: MediaQuery.of(context).size.width / 2 - 20,
                             padding: EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 20),
+                                horizontal: 24, vertical: 15),
                             decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(30)),
+                                color: color4,
+                                borderRadius: BorderRadius.circular(10)),
                             child: Text(
                               "Submit",
                               style:
@@ -168,10 +160,10 @@ class _AddQuestionState extends State<AddQuestion> {
                             alignment: Alignment.center,
                             width: MediaQuery.of(context).size.width / 2 - 40,
                             padding: EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 20),
+                                horizontal: 24, vertical: 15),
                             decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(30)),
+                                color: color5,
+                                borderRadius: BorderRadius.circular(10)),
                             child: Text(
                               "Add Question",
                               style:
@@ -188,6 +180,6 @@ class _AddQuestionState extends State<AddQuestion> {
                 ),
               ),
             ),
-    );
+    ));
   }
 }

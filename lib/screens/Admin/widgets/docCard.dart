@@ -51,6 +51,7 @@ Widget docCard({int index,Map docDetails,String section, String moduleID, BuildC
                               color: color5,
                               onPressed: () {
                                 onDocDelete(docID: docDetails["docID"],section: section,moduleID: moduleID,context: context);
+                                 Navigator.of(context).pop(false);
                               },
                             ),
                             IconButton(

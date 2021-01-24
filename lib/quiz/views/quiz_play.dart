@@ -5,6 +5,9 @@ import 'package:ephysicsapp/quiz/widget/widget.dart';
 import 'package:ephysicsapp/quiz/widgets/quiz_play_widgets.dart';
 import 'package:flutter/material.dart';
 
+import 'package:ephysicsapp/globals/colors.dart';
+import 'package:ephysicsapp/widgets/generalWidgets.dart';
+
 
 class QuizPlay extends StatefulWidget {
   final String quizId, name;
@@ -90,13 +93,7 @@ class _QuizPlayState extends State<QuizPlay> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: color1,
-      appBar: AppBar(
-        title: Text(widget.name),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        brightness: Brightness.light,
-        elevation: 0.0,
-      ),
+      appBar:themeAppBar(widget.name),
       body: isLoading
           ? Container(
         child: Center(child: CircularProgressIndicator()),

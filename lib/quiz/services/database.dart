@@ -48,3 +48,11 @@ class DatabaseService {
         .get();
   }
 }
+
+
+
+
+deleteQuiz(String quizId ){
+   FirebaseFirestore.instance.collection("Quiz")
+        .doc(quizId).delete();
+}
