@@ -1,4 +1,4 @@
-import 'package:ephysicsapp/screens/users/intro.dart';
+import 'package:ephysicsapp/screens/users/home.dart';
 import 'package:ephysicsapp/services/authentication.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
      
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: IntroPage(),
+      home: MyHomePage(),
     );
   }
 }

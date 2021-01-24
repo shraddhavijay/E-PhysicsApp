@@ -1,9 +1,10 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/quiz/views/home.dart';
 import 'package:ephysicsapp/screens/Admin/noteshomepage.dart';
+import 'package:ephysicsapp/screens/users/intro.dart';
 import 'package:ephysicsapp/screens/authentication/adminLogin.dart';
 import 'package:ephysicsapp/services/authentication.dart';
+import 'package:ephysicsapp/widgets/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -34,7 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
- title: Text("Homepage"),
+ title: Text("Homepage",style:TextStyle(color: color5),),
+            backgroundColor: color1,
+        iconTheme: IconThemeData(
+              color: color5
+            ),
+       elevation: 0,
         actions: [
           isLoggedIn()
               ? IconButton(
@@ -50,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         MaterialPageRoute(builder: (context) => AdminLogin()));
                   })
         ],
-        backgroundColor: color5,
+       
 
 
       ),
@@ -61,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
             setState(() => _currentIndex = index);
           },
           children: <Widget>[
-            Container(child:Center(child:Icon(Icons.home))),
+            IntroPage(),
             NotesHomePage(),
             QuizHomePage(),
            
@@ -69,8 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavyBar(
-        backgroundColor: color5,
-        itemCornerRadius: 0,
+        backgroundColor: color1,
+        itemCornerRadius: 12,
         
         selectedIndex: _currentIndex,
         onItemSelected: (index) {
@@ -80,22 +86,24 @@ class _MyHomePageState extends State<MyHomePage> {
         items: <BottomNavyBarItem>[
 
            BottomNavyBarItem(
-            activeColor: color2,
-            title: Text('Dashboard'),
-            icon: Icon(Icons.apps)
+            activeColor: color3,
+            
+            title: Text('Dashboard',style: TextStyle(color: color5),),
+            icon: Icon(Icons.home,color: color5,)
           ),
+          
           BottomNavyBarItem(
-           activeColor: color2,
-           //inactiveColor: ,
-            title: Text('Notes'),
-            icon: Icon(Icons.home)
+            activeColor: color3,
+           
+            title: Text('Notes',style: TextStyle(color: color5),),
+            icon: Icon(Icons.book,color: color5,)
           ),
-          BottomNavyBarItem(
-            activeColor: color2,
-            title: Text('Quizzes'),
-            icon: Icon(Icons.apps)
+
+           BottomNavyBarItem(
+            activeColor: color3,
+            title: Text('Quizzez',style: TextStyle(color: color5),),
+            icon: Icon(Icons.timer,color: color5,)
           ),
-         
         
         ],
       ),

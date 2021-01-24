@@ -16,15 +16,14 @@ class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color2,
-      
+      backgroundColor: color1,     
       body: Container(
-        margin: EdgeInsets.only(top:MediaQuery.of(context).size.height / 10),
+        //margin: EdgeInsets.only(top:MediaQuery.of(context).size.height / 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
            crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-
+             SizedBox(height:20),
             Text(
                 appName,
                 style: GoogleFonts.merriweather(
@@ -43,23 +42,9 @@ class _IntroPageState extends State<IntroPage> {
                     fontStyle: FontStyle.italic,
                     color: color5),
               ),
-              Center(
-            child:Image.asset(
-              'assets/intro.png',
-              height: MediaQuery.of(context).size.height / 1.5,
-              width: MediaQuery.of(context).size.width - 50,
-            )),
-           
-          ],
-        ),
-      ),
-      floatingActionButton: new Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
-        child: new Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
+             SizedBox(height:20),
 
-             FloatingActionButton.extended(
+            FloatingActionButton.extended(
               label: Text("About Us"),
               heroTag: "btn1",
               backgroundColor: color5,
@@ -71,26 +56,54 @@ class _IntroPageState extends State<IntroPage> {
               },
               icon: new Icon(Icons.info),
             ),
-            new Padding(
-              padding: new EdgeInsets.symmetric(
-                horizontal: 15.0,
-              ),
-            ),
-            FloatingActionButton.extended(
-              label: Text("Home"),
-              heroTag: "btn2",
-              backgroundColor: color5,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()),
-                );
-              },
-              icon: new Icon(Icons.home),
-            ),
+              Center(
+            child:Image.asset(
+              'assets/intro.png',
+              height: MediaQuery.of(context).size.height / 2,
+              width: MediaQuery.of(context).size.width - 50,
+            )),
+           
           ],
         ),
-      ),
+       ),
+      // floatingActionButton: new Padding(
+      //   padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
+      //   child: new Row(
+      //     mainAxisAlignment: MainAxisAlignment.end,
+      //     children: <Widget>[
+
+      //        FloatingActionButton.extended(
+      //         label: Text("About Us"),
+      //         heroTag: "btn1",
+      //         backgroundColor: color5,
+      //         onPressed: () {
+      //           Navigator.push(
+      //             context,
+      //             MaterialPageRoute(builder: (context) => AboutUs()),
+      //           );
+      //         },
+      //         icon: new Icon(Icons.info),
+      //       ),
+      //       new Padding(
+      //         padding: new EdgeInsets.symmetric(
+      //           horizontal: 15.0,
+      //         ),
+      //       ),
+      //       FloatingActionButton.extended(
+      //         label: Text("Home"),
+      //         heroTag: "btn2",
+      //         backgroundColor: color5,
+      //         onPressed: () {
+      //           Navigator.push(
+      //             context,
+      //             MaterialPageRoute(builder: (context) => MyHomePage()),
+      //           );
+      //         },
+      //         icon: new Icon(Icons.home),
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

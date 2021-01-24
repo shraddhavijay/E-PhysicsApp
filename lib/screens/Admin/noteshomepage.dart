@@ -1,6 +1,5 @@
 import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/screens/Admin/addModule.dart';
-import 'package:ephysicsapp/screens/authentication/adminLogin.dart';
 import 'package:ephysicsapp/services/authentication.dart';
 
 import 'package:flutter/material.dart';
@@ -56,12 +55,13 @@ class HomeWidgetState extends State<NotesHomePage> with TickerProviderStateMixin
         //                 MaterialPageRoute(builder: (context) => AdminLogin()));
         //           })
         // ],
-        // backgroundColor: color5,
+        backgroundColor: color1,
+        elevation: 0,
         automaticallyImplyLeading: false,
         title: new TabBar(
           isScrollable: true,
-          unselectedLabelColor: color2,
-          labelColor: color5,
+          unselectedLabelColor: color5,
+          labelColor: color2,
           
           labelPadding: EdgeInsets.symmetric(
               horizontal: (MediaQuery.of(context).size.width / 6)),
@@ -69,7 +69,7 @@ class HomeWidgetState extends State<NotesHomePage> with TickerProviderStateMixin
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: new BubbleTabIndicator(
             indicatorHeight:40.0,
-            indicatorColor:color2,
+            indicatorColor:color5,
             indicatorRadius: 10,
             tabBarIndicatorSize: TabBarIndicatorSize.tab,
           ),

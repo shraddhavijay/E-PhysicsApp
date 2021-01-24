@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 
 class QuizPlay extends StatefulWidget {
-  final String quizId;
-  QuizPlay(this.quizId);
+  final String quizId, name;
+  QuizPlay(this.quizId,this.name);
 
   @override
   _QuizPlayState createState() => _QuizPlayState();
@@ -90,7 +90,7 @@ class _QuizPlayState extends State<QuizPlay> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppLogo(),
+        title: Text(widget.name),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         brightness: Brightness.light,

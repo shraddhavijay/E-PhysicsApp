@@ -6,8 +6,12 @@ import 'package:intro_slider/slide_object.dart';
 
 Widget themeAppBar(String title){
   return  AppBar(
-        title: Text(title), 
-        backgroundColor: color5,
+        title: Text(title,style:TextStyle(color: color5),), 
+        backgroundColor: color1,
+        iconTheme: IconThemeData(
+              color: color5
+            ),
+       elevation: 0,
   );
 }
 

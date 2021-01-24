@@ -1,8 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/quiz/services/database.dart';
 import 'package:ephysicsapp/quiz/views/create_quiz.dart';
 import 'package:ephysicsapp/quiz/views/quiz_play.dart';
-import 'package:ephysicsapp/quiz/widget/widget.dart';
 import 'package:ephysicsapp/services/authentication.dart';
 import 'package:flutter/material.dart';
 
@@ -31,8 +30,7 @@ class _QuizHomePageState extends State<QuizHomePage> {
                       itemBuilder: (context, index) {
                         return QuizTile(
                           noOfQuestions: snapshot.data.documents.length,
-                          imageUrl:
-                              "https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?size=626&ext=jpg",
+                        
                           title:
                               snapshot.data.documents[index]['quizTitle'],
                           description:
@@ -75,12 +73,11 @@ class _QuizHomePageState extends State<QuizHomePage> {
 }
 
 class QuizTile extends StatelessWidget {
-  final String imageUrl, title, id, description;
+  final String  title, id, description;
   final int noOfQuestions;
 
   QuizTile(
       {@required this.title,
-      @required this.imageUrl,
       @required this.description,
       @required this.id,
       @required this.noOfQuestions});
@@ -90,48 +87,37 @@ class QuizTile extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(
-          builder: (context) => QuizPlay(id)
+          builder: (context) => QuizPlay(id,title)
         ));
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24),
-        height: 150,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Stack(
-            children: [
-              Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
-              ),
-              Container(
-                color: Colors.black26,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
+        padding: EdgeInsets.only(top: 15,left: 10,right: 10),
+        height: MediaQuery.of(context).size.height/6,
+        child: ListTile(
+          tileColor: color2,
+          leading: Container(
+          padding: EdgeInsets.only(right: 12.0),
+          decoration: new BoxDecoration(
+              border:
+                  new Border(right: new BorderSide(width: 1.0, color: color5))),
+          child: Icon(Icons.timer_outlined, color: color5),
+        ),
+          title: Text(
                         title,
                         style: TextStyle(
                             fontSize: 18,
-                            color: Colors.white,
+                            color: color5,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(height: 4,),
-                      Text(
+          subtitle:  Text(
                         description,
                         style: TextStyle(
                             fontSize: 13,
-                            color: Colors.white,
+                            color: color5,
                             fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+                      ) ,
+          
+           
         ),
       ),
     );
