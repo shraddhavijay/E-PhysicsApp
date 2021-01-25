@@ -102,7 +102,7 @@ Future<void> showProgress(BuildContext context) async {
               },
               child: Text("select file"),
               ),
-              Text("Selected file: "+ filePath??""),
+              Text("Selected file: "+ filePath.toString()??""),
               SizedBox(height: 30),
 
               RaisedButton(
