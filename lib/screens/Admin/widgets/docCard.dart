@@ -4,7 +4,11 @@ import 'package:ephysicsapp/widgets/popUps.dart';
 import 'package:flutter/material.dart';
 
 Widget docCard({int index,Map docDetails,String section, String moduleID, BuildContext context}) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+        openFile( docDetails["downloadUrl"],context);
+      },
+      child: Container(
         child: Card(
             margin: EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 7),
             semanticContainer: true,
@@ -54,17 +58,11 @@ Widget docCard({int index,Map docDetails,String section, String moduleID, BuildC
                                  Navigator.of(context).pop(false);
                               },
                             ),
-                            IconButton(
-                              icon: Icon(Icons.arrow_forward),
-                               color: color5,
-                              onPressed: () {
-                                 openFile( docDetails["downloadUrl"],context);
-                              },
-                            ),
+                          
                           ],
                         ))
                   ],
                 )
               ],
-            ))));
+            )))));
   }

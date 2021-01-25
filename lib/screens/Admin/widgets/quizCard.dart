@@ -9,19 +9,20 @@ Widget quizCard(
   return Container(
       margin: EdgeInsets.fromLTRB(10, 7, 10, 7),
       child:Card(
-        elevation: 3,
-        color:  color1,
+        elevation:isLoggedIn()?1: 3,
+        color: isLoggedIn()?color2: color1,
           shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.horizontal(right: Radius.circular(100)),
+      borderRadius: BorderRadius.horizontal(right: Radius.circular(isLoggedIn()?0:100)),
     ),
       child:ListTile(  
+        
        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         leading: Container(
           padding: EdgeInsets.only(right: 12.0),
           decoration: new BoxDecoration(
               border:
                   new Border(right: new BorderSide(width: 1.0, color: color5))),
-          child: Icon(Icons.book, color: color5),
+          child: Icon(Icons.timer, color: color5),
         ),
         title: Text(
           quizDetails["quizName"].toString(),
@@ -40,7 +41,7 @@ Widget quizCard(
                onDelete(id: quizDetails["quizID"],section:section,context: context);
               },
               color: color5
-              ):Container(),
+              ):null,
         onTap: () {
            Navigator.push(
               context,
