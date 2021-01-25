@@ -1,8 +1,5 @@
 import 'package:ephysicsapp/globals/colors.dart';
-import 'package:ephysicsapp/screens/Admin/widgets/moduleCard.dart';
 import 'package:ephysicsapp/screens/Admin/widgets/quizCard.dart';
-import 'package:ephysicsapp/screens/users/widgets/cards.dart';
-import 'package:ephysicsapp/services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 

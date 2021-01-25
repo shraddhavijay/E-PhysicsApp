@@ -1,7 +1,7 @@
- import 'package:ephysicsapp/globals/colors.dart';
-import 'package:ephysicsapp/screens/Admin/docMaster.dart';
+import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/services/authentication.dart';
 import 'package:ephysicsapp/widgets/popUps.dart';
+import 'package:ephysicsapp/widgets/webDisplay.dart';
 import 'package:flutter/material.dart';
 
 Widget quizCard(
@@ -24,7 +24,7 @@ Widget quizCard(
           child: Icon(Icons.book, color: color5),
         ),
         title: Text(
-          quizDetails["moduleName"].toString(),
+          quizDetails["quizName"].toString(),
           overflow: TextOverflow.clip,
           maxLines: 1,
           softWrap: false,
@@ -37,19 +37,15 @@ Widget quizCard(
         trailing:  isLoggedIn()?IconButton(
               icon:Icon(Icons.delete), 
               onPressed: (){
-               onDelete(id: quizDetails["quizID"],section:section);
+               onDelete(id: quizDetails["quizID"],section:section,context: context);
               },
               color: color5
               ):Container(),
         onTap: () {
-          // Navigator.push(
-          //     context,
-          //     MaterialPageRoute(
-          //         builder: (context) => DocMaster(
-          //               section: section,
-          //               moduleName: quizDetails["moduleName"],
-          //               moduleID: quizDetails["moduleID"],
-          //             )));
+           Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => WebViewExample(url: quizDetails["quizLink"], )));
         },
       )));
 }

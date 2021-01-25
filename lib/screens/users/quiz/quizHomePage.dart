@@ -1,5 +1,4 @@
 import 'package:ephysicsapp/globals/colors.dart';
-import 'package:ephysicsapp/screens/Admin/addModule.dart';
 import 'package:ephysicsapp/screens/Admin/addQuiz.dart';
 import 'package:ephysicsapp/screens/users/quiz/quizList.dart';
 import 'package:ephysicsapp/services/authentication.dart';

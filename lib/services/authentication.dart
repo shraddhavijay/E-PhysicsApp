@@ -1,5 +1,4 @@
 import 'package:ephysicsapp/main.dart';
-import 'package:ephysicsapp/screens/users/intro.dart';
 import 'package:ephysicsapp/widgets/popUps.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

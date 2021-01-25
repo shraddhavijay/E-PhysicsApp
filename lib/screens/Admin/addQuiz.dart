@@ -1,5 +1,4 @@
 import 'package:ephysicsapp/globals/colors.dart';
-import 'package:ephysicsapp/services/moduleServices.dart';
 import 'package:ephysicsapp/services/quizServices.dart';
 import 'package:ephysicsapp/widgets/generalWidgets.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +23,7 @@ class _AddQuizState extends State<AddQuiz> {
   checkValidation()
   {
     if(_formKeyValue.currentState.validate()){
+    
      addQuiz(section:selectedSection,quizName:moduleNameController.text,quizLink: quizLinkController.text);
     }
   }
@@ -93,6 +93,8 @@ class _AddQuizState extends State<AddQuiz> {
                     return "Enter Quiz Link";
                   else return null;
                 },
+                maxLines: 4,
+                minLines: 2,
                 decoration: InputDecoration(
                   labelText: "Enter Quiz Link",
                   fillColor: Colors.white,
