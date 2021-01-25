@@ -1,8 +1,9 @@
 import 'package:ephysicsapp/globals/colors.dart';
-import 'package:ephysicsapp/quiz/views/home.dart';
+
 import 'package:ephysicsapp/screens/Admin/noteshomepage.dart';
 import 'package:ephysicsapp/screens/users/intro.dart';
 import 'package:ephysicsapp/screens/authentication/adminLogin.dart';
+import 'package:ephysicsapp/screens/users/quiz/quizHomePage.dart';
 import 'package:ephysicsapp/services/authentication.dart';
 import 'package:ephysicsapp/widgets/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int _currentIndex = 0;
   PageController _pageController;
+ String appbarText="Home";
+ List titles=["Home", "Notes","Play Quiz"];
 
   @override
   void initState() {
@@ -35,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
- title: Text("Homepage",style:TextStyle(color: color5),),
+ title: Text(appbarText,style:TextStyle(color: color5),),
             backgroundColor: color1,
         iconTheme: IconThemeData(
               color: color5
@@ -64,7 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: PageView(
           controller: _pageController,
           onPageChanged: (index) {
-            setState(() => _currentIndex = index);
+            setState(() { 
+               appbarText=titles[_currentIndex];
+              _currentIndex = index;});
           },
           children: <Widget>[
             IntroPage(),
@@ -80,7 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
         
         selectedIndex: _currentIndex,
         onItemSelected: (index) {
-          setState(() => _currentIndex = index);
+          setState((){
+           
+            _currentIndex = index;
+            });
           _pageController.jumpToPage(index);
         },
         items: <BottomNavyBarItem>[
@@ -88,8 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
            BottomNavyBarItem(
             activeColor: color2,
             
-            title: Text('Dashboard',style: TextStyle(color: color5),),
+            title: Text('Home',style: TextStyle(color: color5),),
             icon: Icon(Icons.home,color: color5,)
+            
           ),
           
           BottomNavyBarItem(

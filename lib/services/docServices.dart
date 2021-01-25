@@ -11,7 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:connectivity/connectivity.dart';
+
 
 
 addDoc({String section, String moduleID, String docName, File doc}) async {

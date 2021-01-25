@@ -62,6 +62,7 @@ class _QuizHomePageState extends State<QuizHomePage> {
       body: quizList(),
       floatingActionButton: isLoggedIn()
           ? FloatingActionButton(
+            backgroundColor: color4,
               child: Icon(Icons.add),
               onPressed: () {
                 Navigator.push(context,

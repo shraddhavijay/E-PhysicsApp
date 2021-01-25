@@ -1,6 +1,7 @@
 
 import 'package:ephysicsapp/services/docServices.dart';
 import 'package:ephysicsapp/services/moduleServices.dart';
+import 'package:ephysicsapp/services/quizServices.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -87,3 +88,27 @@ Future<void> onDocDelete({String docID,String moduleID,String section,BuildConte
     );
   }
   
+
+   Future<void> onDelete({String id,String section,BuildContext context}) {
+    return showDialog(
+      context: context,
+      builder: (context) => new AlertDialog(
+        title: new Text('Are you sure?'),
+        content: new Text('Do you want to delete this Quiz?'),
+        actions: <Widget>[
+          new GestureDetector(
+            onTap: () => Navigator.of(context).pop(false),
+            child: Text("NO",style: TextStyle(fontSize: 18),),
+          ),
+          SizedBox(width: 35),
+          new GestureDetector(
+            onTap: () async{
+               deleteQuiz(section:section ,quizID:id);
+                Navigator.of(context).pop(false);
+            },
+            child: Text("YES" ,style: TextStyle(fontSize: 18),),
+          ),
+        ],
+      ),
+    );
+  }

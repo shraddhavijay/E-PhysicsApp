@@ -47,6 +47,8 @@ Widget moduleUserCard(
       )));
 }
 
+
+
 Widget docUserCard(
     {int index,
     Map docDetails,
@@ -89,3 +91,5 @@ Widget docUserCard(
         },
       )));
 }
+
+
