@@ -1,5 +1,6 @@
 import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/screens/Admin/widgets/quizCard.dart';
+import 'package:ephysicsapp/services/general.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class _QuizListState extends State<QuizList> {
                 !snap.hasError &&
                 snap.data.snapshot.value != null) {
               Map data = snap.data.snapshot.value;
-              quizDetails = data.values.toList();
+              quizDetails = sortMap(data,"quizName").values.toList();
               return new Column(
                 children: <Widget>[
                   SizedBox(

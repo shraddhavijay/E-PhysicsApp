@@ -4,6 +4,7 @@ import 'package:ephysicsapp/screens/Admin/addDoc.dart';
 import 'package:ephysicsapp/screens/Admin/widgets/docCard.dart';
 import 'package:ephysicsapp/screens/users/widgets/cards.dart';
 import 'package:ephysicsapp/services/authentication.dart';
+import 'package:ephysicsapp/services/general.dart';
 import 'package:ephysicsapp/widgets/generalWidgets.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class _DocMasterState extends State<DocMaster> {
                 !snap.hasError &&
                 snap.data.snapshot.value != null) {
               Map data = snap.data.snapshot.value;
-              documents = data.values.toList();
+              documents = sortMap(data,"docName").values.toList();
 
               return new Column(
                 children: <Widget>[

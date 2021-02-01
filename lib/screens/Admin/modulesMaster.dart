@@ -2,6 +2,7 @@ import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/screens/Admin/widgets/moduleCard.dart';
 import 'package:ephysicsapp/screens/users/widgets/cards.dart';
 import 'package:ephysicsapp/services/authentication.dart';
+import 'package:ephysicsapp/services/general.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class _ModuleMasterState extends State<ModuleMaster> {
                 !snap.hasError &&
                 snap.data.snapshot.value != null) {
               Map data = snap.data.snapshot.value;
-              modules = data.values.toList();
+              modules = sortMap(data,"moduleName").values.toList();
               return new Column(
                 children: <Widget>[
                   SizedBox(

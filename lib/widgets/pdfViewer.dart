@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class PDFScreen extends StatefulWidget {
-  final String path;
+  final String path,title;
 
-  PDFScreen({Key key, this.path}) : super(key: key);
+  PDFScreen({Key key, this.path,this.title}) : super(key: key);
 
   _PDFScreenState createState() => _PDFScreenState();
 }
@@ -24,7 +24,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
     return Scaffold(
       
       appBar: AppBar(
-        title: Text("Document"),
+        title: Text(widget.title),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.share),
@@ -37,9 +37,10 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
           PDFView(
             filePath: widget.path,
             enableSwipe: true,
-            swipeHorizontal: true,
+            swipeHorizontal: false,
+            
             autoSpacing: false,
-            pageFling: true,
+            pageFling: false,
             pageSnap: true,
             defaultPage: currentPage,
             fitPolicy: FitPolicy.BOTH,
@@ -92,9 +93,9 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
         builder: (context, AsyncSnapshot<PDFViewController> snapshot) {
           if (snapshot.hasData) {
             return FloatingActionButton.extended(
-              label: Text("Page ${currentPage+1}/${pages+1}"),
+              label: Text("Page ${currentPage+1}/$pages"),
               onPressed: () async {
-                await snapshot.data.setPage(pages ~/ 2);
+               // await snapshot.data.setPage(pages ~/ 2);
               },
             );
           }

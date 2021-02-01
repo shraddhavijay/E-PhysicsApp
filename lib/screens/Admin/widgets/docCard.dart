@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 Widget docCard({int index,Map docDetails,String section, String moduleID, BuildContext context}) {
     return GestureDetector(
       onTap: () {
-        openFile( docDetails["downloadUrl"],context);
+        openFile( docDetails["downloadUrl"],context,docDetails["docName"]);
       },
       child: Container(
         child: Card(

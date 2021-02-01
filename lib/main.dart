@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-      title: 'Engineering Physics',
+      title: 'Philo Physics',
       theme: ThemeData(
         primarySwatch: createMaterialColor(color5),
      

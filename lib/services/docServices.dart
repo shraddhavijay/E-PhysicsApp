@@ -61,7 +61,7 @@ deleteDoc({String docID, String moduleID, String section}) async {
   });
 }
 
-Future<void> openFile(String url, BuildContext context) async {
+Future<void> openFile(String url, BuildContext context,String title) async {
 
   ProgressDialog _progressDialog = ProgressDialog(); 
   _progressDialog.showProgressDialog(
@@ -78,7 +78,7 @@ Future<void> openFile(String url, BuildContext context) async {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => PDFScreen(path: remotePDFpath),
+          builder: (context) => PDFScreen(path: remotePDFpath,title: title,),
         ),
       );
     }

@@ -86,7 +86,7 @@ Widget docUserCard(
         ),
         trailing: Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
         onTap: () {
-          openFile(docDetails["downloadUrl"], context);
+          openFile(docDetails["downloadUrl"], context,docDetails["docName"]);
             //openDocProgressIndicator( context, docDetails["downloadUrl"]);// didnt work
         },
       )));
