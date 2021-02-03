@@ -36,7 +36,7 @@ class AboutUsState extends State<AboutUs> {
     );
     slides.add(
       newSlide(
-          imgPath: "assets/rc.png",
+          imgPath: "assets/icon.png",
           discription: teamDiscription,
           title: "About Team"),
     );

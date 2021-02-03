@@ -22,11 +22,10 @@ Widget moduleUserCard(
                   new Border(right: new BorderSide(width: 1.0, color: color5))),
           child: Icon(Icons.book, color: color5),
         ),
-        title: Text(
+        title:
+          Text(
           moduleDetails["moduleName"].toString(),
-          overflow: TextOverflow.clip,
-          maxLines: 1,
-          softWrap: false,
+          overflow: TextOverflow.visible,
           style: TextStyle(
             color: color5,
             fontWeight: FontWeight.bold,
@@ -75,9 +74,7 @@ Widget docUserCard(
         ),
         title: Text(
           docDetails["docName"].toString(),
-          overflow: TextOverflow.clip,
-          maxLines: 1,
-          softWrap: false,
+           overflow: TextOverflow.visible,
           style: TextStyle(
             color: color5,
             fontWeight: FontWeight.bold,

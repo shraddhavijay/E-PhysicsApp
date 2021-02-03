@@ -38,9 +38,7 @@ Widget moduleCard(
                               children: <Widget>[
                                 Text(
                                   moduleDetails["moduleName"].toString(),
-                                  overflow: TextOverflow.clip,
-                                  maxLines: 1,
-                                  softWrap: false,
+                                  overflow: TextOverflow.visible,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,

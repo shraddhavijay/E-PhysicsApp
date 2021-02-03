@@ -25,10 +25,9 @@ Widget quizCard(
           child: Icon(Icons.timer, color: color5),
         ),
         title: Text(
+          
           quizDetails["quizName"].toString(),
-          overflow: TextOverflow.clip,
-          maxLines: 1,
-          softWrap: false,
+          overflow: TextOverflow.visible,
           style: TextStyle(
             color: color5,
             fontWeight: FontWeight.bold,

@@ -31,9 +31,7 @@ Widget docCard({int index,Map docDetails,String section, String moduleID, BuildC
                          
                                docDetails["docName"]
                                     .toString(),
-                            overflow: TextOverflow.clip,
-                            maxLines: 1,
-                            softWrap: false,
+                           overflow: TextOverflow.visible,
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
