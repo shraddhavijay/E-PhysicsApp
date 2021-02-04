@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
            BottomNavyBarItem(
             activeColor: color2,
-            title: Text('Quizzez',style: TextStyle(color: color5),),
+            title: Text('Quizzes',style: TextStyle(color: color5),),
             icon: Icon(Icons.timer,color: color5,)
           ),
         
