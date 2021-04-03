@@ -1,14 +1,19 @@
 import 'package:ephysicsapp/globals/colors.dart';
 import 'package:ephysicsapp/screens/Admin/docMaster.dart';
+<<<<<<< HEAD
 import 'package:ephysicsapp/screens/users/calcForm.dart';
 import 'package:ephysicsapp/services/docServices.dart';
 import 'package:ephysicsapp/services/authentication.dart';
+=======
+import 'package:ephysicsapp/services/docServices.dart';
+>>>>>>> 9098ce7b3654d93e10dc1014659878588153ac14
 import 'package:flutter/material.dart';
 
 Widget moduleUserCard(
     {int index, Map moduleDetails, String section, BuildContext context}) {
   return Container(
       margin: EdgeInsets.fromLTRB(10, 7, 10, 7),
+<<<<<<< HEAD
       child: Card(
           elevation: 3,
           color: color1,
@@ -49,6 +54,49 @@ Widget moduleUserCard(
           )));
 }
 
+=======
+      child:Card(
+        elevation: 3,
+        color:  color1,
+          shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.horizontal(right: Radius.circular(100)),
+    ),
+      child:ListTile(  
+       contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+        leading: Container(
+          padding: EdgeInsets.only(right: 12.0),
+          decoration: new BoxDecoration(
+              border:
+                  new Border(right: new BorderSide(width: 1.0, color: color5))),
+          child: Icon(Icons.book, color: color5),
+        ),
+        title:
+          Text(
+          moduleDetails["moduleName"].toString(),
+          overflow: TextOverflow.visible,
+          style: TextStyle(
+            color: color5,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
+        trailing: Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DocMaster(
+                        section: section,
+                        moduleName: moduleDetails["moduleName"],
+                        moduleID: moduleDetails["moduleID"],
+                      )));
+        },
+      )));
+}
+
+
+
+>>>>>>> 9098ce7b3654d93e10dc1014659878588153ac14
 Widget docUserCard(
     {int index,
     Map docDetails,
@@ -57,6 +105,7 @@ Widget docUserCard(
     BuildContext context}) {
   return Container(
       margin: EdgeInsets.fromLTRB(10, 7, 10, 7),
+<<<<<<< HEAD
       child: Card(
           elevation: 3,
           color: color1,
@@ -142,3 +191,39 @@ Widget calcUserCard(
             },
           )));
 }
+=======
+       child:Card(
+        elevation: 3,
+        color:  color1,
+          shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.horizontal(right: Radius.circular(100)),
+    ),
+      child: ListTile(
+      
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        leading: Container(
+          padding: EdgeInsets.only(right: 12.0),
+          decoration: new BoxDecoration(
+              border:
+                  new Border(right: new BorderSide(width: 1.0, color: color5))),
+          child: Icon(Icons.note, color: color5),
+        ),
+        title: Text(
+          docDetails["docName"].toString(),
+           overflow: TextOverflow.visible,
+          style: TextStyle(
+            color: color5,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
+        trailing: Icon(Icons.keyboard_arrow_right, color: color5, size: 30.0),
+        onTap: () {
+          openFile(docDetails["downloadUrl"], context,docDetails["docName"]);
+            //openDocProgressIndicator( context, docDetails["downloadUrl"]);// didnt work
+        },
+      )));
+}
+
+
+>>>>>>> 9098ce7b3654d93e10dc1014659878588153ac14

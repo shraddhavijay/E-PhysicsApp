@@ -5,6 +5,10 @@ import 'package:ephysicsapp/services/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9098ce7b3654d93e10dc1014659878588153ac14
 class QuizHomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -12,8 +16,12 @@ class QuizHomePage extends StatefulWidget {
   }
 }
 
+<<<<<<< HEAD
 class HomeWidgetState extends State<QuizHomePage>
     with TickerProviderStateMixin {
+=======
+class HomeWidgetState extends State<QuizHomePage> with TickerProviderStateMixin {
+>>>>>>> 9098ce7b3654d93e10dc1014659878588153ac14
   final List<Tab> tabs = <Tab>[
     new Tab(text: "Physics- I"),
     new Tab(text: "Physics- II"),
@@ -61,13 +69,22 @@ class HomeWidgetState extends State<QuizHomePage>
           isScrollable: true,
           unselectedLabelColor: color5,
           labelColor: color2,
+<<<<<<< HEAD
+=======
+          
+>>>>>>> 9098ce7b3654d93e10dc1014659878588153ac14
           labelPadding: EdgeInsets.symmetric(
               horizontal: (MediaQuery.of(context).size.width / 6)),
           indicatorPadding: EdgeInsets.symmetric(horizontal: 100),
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: new BubbleTabIndicator(
+<<<<<<< HEAD
             indicatorHeight: 40.0,
             indicatorColor: color5,
+=======
+            indicatorHeight:40.0,
+            indicatorColor:color5,
+>>>>>>> 9098ce7b3654d93e10dc1014659878588153ac14
             indicatorRadius: 10,
             tabBarIndicatorSize: TabBarIndicatorSize.tab,
           ),
@@ -86,6 +103,7 @@ class HomeWidgetState extends State<QuizHomePage>
           return QuizList(section: section);
         }).toList(),
       ),
+<<<<<<< HEAD
       floatingActionButton: isLoggedIn()
           ? FloatingActionButton(
               backgroundColor: color4,
@@ -100,6 +118,18 @@ class HomeWidgetState extends State<QuizHomePage>
               ),
             )
           : Container(),
+=======
+      floatingActionButton: isLoggedIn()? FloatingActionButton(
+        backgroundColor: color4,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddQuiz()),
+          );
+        },
+        child: Icon(Icons.add,),
+      ):Container(),
+>>>>>>> 9098ce7b3654d93e10dc1014659878588153ac14
     );
   }
 }
