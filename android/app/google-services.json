@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "409205311132",
+    "firebase_url": "https://engineering-physics-bde89.firebaseio.com",
+    "project_id": "engineering-physics-bde89",
+    "storage_bucket": "engineering-physics-bde89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409205311132:android:da5fd374e5e887f6844f59",
+        "android_client_info": {
+          "package_name": "com.philophysics.ephysicsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409205311132-0tf08mobk0r2i9675godmg6q950c9lc6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU4uUvEDNwMGM5XBI6OxB4oOhELg04uoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409205311132-0tf08mobk0r2i9675godmg6q950c9lc6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409205311132:android:52fbfe1962cddde6844f59",
+        "android_client_info": {
+          "package_name": "com.philophysicsineeringphysics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409205311132-9ekioefqhpcjgiua59bignetvrd40lhb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shraddha.engineeringphysics",
+            "certificate_hash": "73a5b3a117449d51fa567345fa069f49e4f0bfca"
+          }
+        },
+        {
+          "client_id": "409205311132-0tf08mobk0r2i9675godmg6q950c9lc6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU4uUvEDNwMGM5XBI6OxB4oOhELg04uoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409205311132-0tf08mobk0r2i9675godmg6q950c9lc6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
