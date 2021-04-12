@@ -65,7 +65,7 @@ class HomeWidgetState extends State<CalcHomePage>
           labelColor: color2,
           labelPadding: EdgeInsets.symmetric(
               horizontal: (MediaQuery.of(context).size.width / 6)),
-          indicatorPadding: EdgeInsets.symmetric(horizontal: 100),
+          //indicatorPadding: EdgeInsets.symmetric(horizontal: 100),
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: new BubbleTabIndicator(
             indicatorHeight: 40.0,
