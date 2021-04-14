@@ -295,7 +295,7 @@ class _CalcFormState extends State<CalcForm> {
                                                 ["controller"]
                                             .text),
                                         double.parse(textFormFieldControllers[i]
-                                                ["controller"]
+                                                ["expController"]
                                             .text))
                                   });
                                 }
